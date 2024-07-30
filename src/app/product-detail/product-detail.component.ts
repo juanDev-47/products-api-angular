@@ -12,6 +12,7 @@ export class ProductDetailComponent implements OnInit {
 
   producto?: Product;
   productList: Product[] = productList;
+  loading: boolean = true;
 
 
   constructor(private _route: ActivatedRoute){
@@ -20,8 +21,10 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this._route.params.subscribe( param => {
-      this.producto = this.productList.find( item => item.id == param['productId']);
-      console.log(this.producto);
+      setTimeout(()=> {
+        this.producto = this.productList.find( item => item.id == param['productId']);
+        this.loading = false;
+      }, 1500)
     });
   }
 

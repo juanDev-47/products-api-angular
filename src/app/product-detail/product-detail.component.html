@@ -1,1 +1,11 @@
-<h1>Aca veras el detalle del producto {{producto?.name}}</h1>
+<ng-container *ngIf="!loading">
+  <h1>Nombre del producto: {{ producto?.name }}</h1>
+  <h1>Precio: {{ producto?.price }}</h1>
+  <h1 *ngIf="producto?.description">
+    Descripcion: {{ producto?.description }}
+  </h1>
+</ng-container>
+
+<ng-container *ngIf="loading">
+    <h1>Cargando datos...</h1>
+  </ng-container>
