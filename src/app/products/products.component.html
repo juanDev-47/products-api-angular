@@ -5,27 +5,18 @@
       <th scope="col">#</th>
       <th scope="col">producto</th>
       <th scope="col">precio</th>
+      <th scope="col">descripción</th>
       <th scope="col">detalle</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Trapeadora</td>
-      <td>$10</td>
-      <button type="button" class="btn btn-outline-primary" [routerLink]="['/products', 'red', 'trapeadora']" routerLinkActive="router-link-active" >Ver detalle</button>
+    <tr *ngFor="let item of productList">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.name}}</td>
+      <td>{{item.price | currency}}</td>
+      <td>{{item.description}}</td>
+      <button type="button" class="btn btn-outline-primary" [routerLink]="['/products', item.id]" routerLinkActive="router-link-active" >Ver detalle</button>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Detergente</td>
-      <td>$5</td>
-      <button type="button" class="btn btn-outline-primary" [routerLink]="['/products', 'yellow', 'detergente']" routerLinkActive="router-link-active">Ver detalle</button>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Limpia vidrio</td>
-      <td>$3</td>
-      <button type="button" class="btn btn-outline-primary" [routerLink]="['/products', 'blue', 'limpiaVidrio']" routerLinkActive="router-link-active">Ver detalle</button>
-    </tr>
+
   </tbody>
 </table>
