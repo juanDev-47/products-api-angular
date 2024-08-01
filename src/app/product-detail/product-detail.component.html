@@ -1,11 +1,35 @@
 <ng-container *ngIf="!loading">
-  <h1>Nombre del producto: {{ producto?.name }}</h1>
-  <h1>Precio: {{ producto?.price }}</h1>
-  <h1 *ngIf="producto?.description">
-    Descripcion: {{ producto?.description }}
-  </h1>
+  <div class="card mx-auto" style="width: 18rem">
+    <img
+      [src]="producto?.image"
+      class="image-custom-size rounded mx-auto d-block"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ producto?.title }}</h5>
+      <div>
+        <div
+          class="texto-truncado"
+          [ngClass]="{ 'collapsed-text': !isCollapsed }"
+        >
+          {{ producto?.description }}
+        </div>
+        <button class="btn btn-link" (click)="toggleCollapse()">
+          {{ isCollapsed ? "Mostrar más" : "Mostrar menos" }}
+        </button>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Precio: {{ producto?.price | currency }}</li>
+      <li class="list-group-item">Categoria: {{ producto?.category }}</li>
+    </ul>
+    <!-- <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div> -->
+  </div>
 </ng-container>
 
 <ng-container *ngIf="loading">
-    <h1>Cargando datos...</h1>
-  </ng-container>
+  <h1>Cargando datos...</h1>
+</ng-container>

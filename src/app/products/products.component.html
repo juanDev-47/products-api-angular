@@ -1,22 +1,30 @@
-<h1>Productos de limpieza</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">producto</th>
-      <th scope="col">precio</th>
-      <th scope="col">descripción</th>
-      <th scope="col">detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of productList">
-      <th scope="row">{{item.id}}</th>
-      <td>{{item.name}}</td>
-      <td>{{item.price | currency}}</td>
-      <td>{{item.description}}</td>
-      <button type="button" class="btn btn-outline-primary" [routerLink]="['/products', item.id]" routerLinkActive="router-link-active" >Ver detalle</button>
-    </tr>
-
-  </tbody>
-</table>
+<div class="container">
+  <h1>Productos de limpieza</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">producto</th>
+        <th scope="col">precio</th>
+        <th scope="col">descripción</th>
+        <th scope="col">detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productList">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.title }}</td>
+        <td>{{ item.price | currency }}</td>
+        <td class="mb-2 mb-lg-4">{{ item.description }}</td>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [routerLink]="['/products', item.id]"
+          routerLinkActive="router-link-active"
+        >
+          Ver detalle
+        </button>
+      </tr>
+    </tbody>
+  </table>
+</div>

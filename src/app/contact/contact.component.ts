@@ -23,6 +23,7 @@ export class ContactComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]]
     })
+    // Como subscribirse a un valor en especifico o a todo el form sin usar el get.
     this.formularioContacto.get('name')?.valueChanges.subscribe(valor => {
       console.log(valor)
     });
